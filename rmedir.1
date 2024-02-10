@@ -1,0 +1,41 @@
+.\"
+.Dd February 10th, 2024
+.Dt RMEDIR 1
+.Os
+.Sh NAME
+.Nm rmedir
+.Nd Remove empty directories recursively
+.Sh SYNOPSIS
+.Nm
+.Op Fl iv
+.Ar directory ...
+.Sh DESCRIPTION
+The
+.Nm
+utility recursively descends
+through the hierarchy below each
+.Ar directory
+and attempts to remove empty directories,
+starting from the deepest level.
+.Nm
+will not follow symbolic links.
+.Pp
+Available options:
+.Bl -tag
+.It Fl i
+Prompt before removing each directory.
+.It Fl v
+Be verbose when removing directories,
+showing them as they are removed.
+Specify twice to show every attempt to remove them.
+.El
+.Sh EXIT STATUS
+.Ex -std
+.Sh SEE ALSO
+.Xr rm 1 ,
+.Xr rmdir 1 ,
+.Xr nftw 3
+.Sh BUGS
+You cannot remove the directory
+.Ql \&. ,
+it always fails.
